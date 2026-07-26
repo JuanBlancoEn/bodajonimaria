@@ -1,0 +1,34 @@
+.upload-button {
+
+  background: var(--accent);
+
+  color: var(--surface);
+
+  border: none;
+
+  padding: 16px 36px;
+
+  border-radius: 50px;
+
+  font-size: 1rem;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 
+    background .3s ease,
+    transform .2s ease;
+
+}
+
+
+.upload-button:hover {
+
+  background:
+    var(--accent-dark);
+
+  transform:
+    translateY(-2px);
+
+}
