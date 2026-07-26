@@ -9,10 +9,8 @@ function App() {
     <main>
 
       <WeddingHeader />
-
-      <section className="upload-section">
+      
         <UploadButton />
-      </section>
 
       <Gallery />
 
