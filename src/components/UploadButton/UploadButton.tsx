@@ -2,8 +2,8 @@ import "./UploadButton.css";
 import { useRef, useState } from "react";
 import { uploadFiles } from "../../services/storage";
 
-const MAX_IMAGE_SIZE = 15 * 1024 * 1024; // 15 MB
-const MAX_VIDEO_SIZE = 100 * 1024 * 1024; // 100 MB
+const MAX_IMAGE_SIZE = 100 * 1024 * 1024; // 100 MB
+const MAX_VIDEO_SIZE = 1000 * 1024 * 1024; // 1000 MB
 
 function UploadButton() {
 
