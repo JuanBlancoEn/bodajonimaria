@@ -1,43 +1,80 @@
+import { useEffect, useState } from "react";
+import { getPhotos } from "../../services/storage";
+
 import "./Gallery.css";
 
-const photos = [
-  "/example1.jpg",
-  "/example2.jpg",
-  "/example3.jpg",
-];
+
+function Gallery() {
+
+  const [photos, setPhotos] = useState<any[]>([]);
 
 
-function Gallery(){
+  useEffect(() => {
 
-return (
+    loadPhotos();
 
-<section className="gallery">
-
-<h2>
-Nuestros momentos
-</h2>
+  }, []);
 
 
-<div className="grid">
+  const loadPhotos = async () => {
 
-{
-photos.map((photo,index)=>(
+    try {
 
-<img
-key={index}
-src={photo}
-alt="Recuerdo"
-/>
+      const result = await getPhotos();
 
-))
+      setPhotos(result);
+
+    } catch(error) {
+
+      console.error(
+        "Error cargando fotos",
+        error
+      );
+
+    }
+
+  };
+
+
+  return (
+
+    <section className="gallery">
+
+      <h2>
+        Nuestros momentos
+      </h2>
+
+
+      <div className="gallery-grid">
+
+        {photos.map((file) => (
+
+  file.type?.startsWith("video/")
+    ?
+    <video
+      key={file.url}
+      src={file.url}
+      controls
+      className="gallery-item"
+    />
+
+    :
+    <img
+      key={file.url}
+      src={file.url}
+      alt="Foto boda"
+      className="gallery-item"
+    />
+
+))}
+
+      </div>
+
+    </section>
+
+  );
+
 }
 
-</div>
-
-</section>
-
-)
-
-}
 
 export default Gallery;

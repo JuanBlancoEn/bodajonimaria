@@ -13,7 +13,7 @@ function WeddingHeader() {
       <div className="header-content">
 
         <h1>
-          Jonatan y María Georgiana
+          Jonatan y María Giorgiana
         </h1>
 
         <p className="date">
